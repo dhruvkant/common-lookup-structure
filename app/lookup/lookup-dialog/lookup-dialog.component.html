@@ -3,4 +3,14 @@
 </kendo-dialog-titlebar>
 <kendo-grid
 >
+  <kendo-grid-column *ngFor="let column of columnConfig" 
+    field="{{column.field}}" 
+    title="{{column.title}}" 
+    filter="{{column.type}}"
+    format="{{column.format}}" 
+    width="{{column.width}}"
+    minResizableWidth="{{column.width}}"
+    headerClass={{column.headerClass}}
+    class={{column.class}}
+  ></kendo-grid-column>
 </kendo-grid>

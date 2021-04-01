@@ -1,4 +1,5 @@
 export enum LookupType {
+  USER = "User",
   FROM_TASK = "FromTask",
   TO_TASK = "ToTask",
   TASK = "Task",

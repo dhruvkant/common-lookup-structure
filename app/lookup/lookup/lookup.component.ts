@@ -20,7 +20,8 @@ export class LookupComponent implements OnInit {
 
   openLookup() {
     const dialogRef = this.dialogService.open({
-      content: LookupDialogComponent
+      content: LookupDialogComponent,
+      width: 500
     });
     dialogRef.content.instance.lookupType = LookupType[this.lookupType];
   }

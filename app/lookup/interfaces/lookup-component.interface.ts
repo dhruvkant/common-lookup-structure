@@ -4,6 +4,6 @@ import { ColumnSetting } from "./column-setting.interface";
 export interface LookupComponent {
   title: string;
   tableState: State;
-  getTableColumns(): ColumnSetting[];
+  getColumnConfig(): ColumnSetting[];
   getAPIUrl(): string;
 }

@@ -7,16 +7,17 @@ import { LookupComponent } from './lookup/lookup.component';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { LookupDialogComponent } from './lookup-dialog/lookup-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     GridModule,
     DropDownsModule,
     DialogsModule,
     ButtonsModule
-
   ],
   declarations: [LookupComponent, LookupDialogComponent],
   entryComponents: [LookupDialogComponent],
