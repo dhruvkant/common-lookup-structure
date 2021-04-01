@@ -1,10 +1,11 @@
 import { State } from "@progress/kendo-data-query";
 import { ColumnSetting } from "../interfaces/column-setting.interface";
-import { LookupComponent } from "../interfaces/lookup-component.interface";
+import { AbstractLookup } from "./abstract-lookup.class";
 
-export class UserLookup implements LookupComponent {
-  title: string = "Users";
-  tableState: State = {};
+export class UserLookup extends AbstractLookup {
+  constructor() {
+    super("Users");
+  }
 
   getColumnConfig(): ColumnSetting[] {
     return [

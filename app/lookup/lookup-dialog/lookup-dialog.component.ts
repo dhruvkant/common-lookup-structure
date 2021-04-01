@@ -5,6 +5,8 @@ import { LookupComponentFactory } from '../classes/lookup-component-factory.clas
 import { LookupType } from '../enums/lookup-type.enum';
 import { ColumnSetting } from '../interfaces/column-setting.interface';
 import { LookupComponent } from '../interfaces/lookup-component.interface';
+import { Checkable } from '../interfaces/checkable.interface';
+
 
 @Component({
   selector: 'app-lookup-dialog',
@@ -18,20 +20,22 @@ export class LookupDialogComponent extends DialogContentBase implements OnInit {
 
   public lookupComponent: LookupComponent;
   public columnConfig: Array<ColumnSetting>;
+  public lookupData;
 
   constructor(public dialogRef: DialogRef, private http: HttpClient) {
     super(dialogRef);
-   }
+  }
 
   ngOnInit() {
     this.lookupComponent = LookupComponentFactory.create(this.lookupType);
-    this.columnConfig = this.lookupComponent.getTableColumns();
-    
+
+    this.columnConfig = this.lookupComponent.getColumnConfig();
+    this.getData();
   }
 
   getData() {
-    this.http.get(this.lookupComponent.getAPIUrl()).subscribe(() => {
-
+    this.http.get(this.lookupComponent.getAPIUrl()).subscribe((response) => {
+      this.lookupData = response;
     })
   }
 
