@@ -21,6 +21,7 @@ export class LookupDialogComponent extends DialogContentBase implements OnInit {
   public lookupComponent: LookupComponent;
   public columnConfig: Array<ColumnSetting>;
   public lookupData;
+  public loading = false;
 
   constructor(public dialogRef: DialogRef, private http: HttpClient) {
     super(dialogRef);
@@ -28,14 +29,15 @@ export class LookupDialogComponent extends DialogContentBase implements OnInit {
 
   ngOnInit() {
     this.lookupComponent = LookupComponentFactory.create(this.lookupType);
-
     this.columnConfig = this.lookupComponent.getColumnConfig();
     this.getData();
   }
 
   getData() {
+    this.loading = true;
     this.http.get(this.lookupComponent.getAPIUrl()).subscribe((response) => {
       this.lookupData = response;
+      this.loading = false;
     })
   }
 

@@ -3,6 +3,7 @@
 </kendo-dialog-titlebar>
 <kendo-grid
   [data]="lookupData"
+  [loading]="loading"
 >
   <kendo-grid-column *ngFor="let column of columnConfig" 
     field="{{column.field}}" 
