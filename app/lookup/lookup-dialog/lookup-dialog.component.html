@@ -4,6 +4,8 @@
 <kendo-grid
   [data]="lookupData"
   [loading]="loading"
+  [selectable]="true"
+  (selectionChange)="onSelection($event)"
 >
   <kendo-grid-column *ngFor="let column of columnConfig" 
     field="{{column.field}}" 

@@ -41,4 +41,8 @@ export class LookupDialogComponent extends DialogContentBase implements OnInit {
     })
   }
 
+  onSelection(event){
+    this.dialogRef.close(event.selectedRows[0].dataItem);
+  }
+
 }
